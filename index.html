@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://fonts.googleapis.com/css?family=Exo|Varela+Round" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <title>Due Planner</title>
+</head>
+<body>
+  <div class="modal">
+      <div class="modal-content">
+        <span class="close-button" onclick="toggleModal()">&times;</span>
+        <h1 class="modal-heading">Let's plan it!</h1>
+        <div class="modal-radio-wrp">
+          <input type="radio" id="day" checked="checked" name="duty-radio" value="day-duty" onclick="showForm()">
+          <label class="container" for="day"><i class="far fa-sun"></i>
+            <span class="checkmark"></span>
+            <p>Day duty</p>
+            <p>8am - 8pm</p>
+          </label>
+          <input type="radio" id="night" name="duty-radio" value="night-duty" onclick="showForm()">
+          <label class="container" for="night"><i class="far fa-moon"></i>
+            <span class="checkmark"></span>
+            <p>Night duty</p>
+            <p>8pm - 8am</p>
+          </label>
+          <input type="radio" id="day-off" name="duty-radio" value="day-off"onclick="hideForm()">
+          <label class="container" for="day-off"><i class="far fa-grin-beam"></i>
+            <span class="checkmark"></span>
+            <p>Day off</p>
+          </label>
+        </div>
+        <form action="" class="duty-form" id="duty-form">
+          <div class="select-start">
+            <label for="">Start at: </label>
+            <select name="start-hours">
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+            </select>
+            <span>:</span>
+            <select name="start-minutes">
+              <option value="00">00</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+          <div class="select-finish">
+            <label for="">Finish at: </label>
+            <select name="finish-hours">
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+            </select>
+            <span>:</span>
+            <select name="finish-minutes">
+              <option value="00">00</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+            </select>
+          </div>
+        </form>
+        <span id="admitBtn"class="sabmit-btn" onclick="saveDuty()"><i class="fas fa-check-circle"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="personal-inf">
+      <img class="avatar" src="img/doctor.jpg">
+      <div class="inf">
+        <h3 class="name">Drake Ramoray</h3>
+        <h4 class="job"><i class="fas fa-user-md"></i>doctor</h4>
+        <p class="phone">380-68-65-58-759</p>
+      </div>
+    </div>
+    <div class="planer">
+      <h1 class="planer-heading"><i class="far fa-calendar-alt"></i>Date</h1>
+      <h1 class="planer-heading"><i class="fas fa-notes-medical"></i>Working time</h1>
+      <div class="day sun">
+        <h2>1</h2>
+        <p>Sun</p>
+      </div>
+      <div class="duty" id="sunday">
+        <div class="empty" id="sunday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('sunday')">
+          <i class="material-icons">add_circle_outline</i>
+        </button>
+      </div>
+      <div class="day mon">
+        <h2>2</h2>
+        <p>Mon</p>
+      </div>
+      <div class="duty" id="monday">
+        <div class="empty" id="monday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('monday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+      <div class="day tue">
+        <h2>3</h2>
+        <p>Tue</p>
+      </div>
+      <div class="duty" id="tuesday">
+        <div class="empty" id="tuesday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('tuesday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+      <div class="day wed">
+        <h2>4</h2>
+        <p>Wed</p>
+      </div>
+      <div class="duty" id="wednesday">
+        <div class="empty" id="wednesday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('wednesday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+      <div class="day thu">
+        <h2>5</h2>
+        <p>Thu</p>
+      </div>
+      <div class="duty" id="thursday">
+        <div class="empty" id="thursday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('thursday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+      <div class="day fri">
+        <h2>6</h2>
+        <p>Fri</p>
+      </div>
+      <div class="duty" id="friday">
+        <div class="empty" id="friday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('friday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+      <div class="day sat" id="saturday">
+        <h2>7</h2>
+        <p>Sat</p>
+      </div>
+      <div class="duty">
+        <div class="empty" id="saturday-empty">
+          <p>You didn't choose any duty.</p>
+        </div>
+        <button class="open-btn" onclick="toggleModal('friday')"><i class="material-icons">add_circle_outline</i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
